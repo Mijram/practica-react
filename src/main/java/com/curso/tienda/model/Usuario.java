@@ -73,6 +73,13 @@ public class Usuario {
                orphanRemoval = true)
     private List<Pedido> pedidos = new ArrayList<>();
 
+    @OneToMany(mappedBy = "usuario",
+                fetch = FetchType.LAZY,
+                cascade = CascadeType.ALL,
+                orphanRemoval = true)
+    private List<Almacen> almacenes = new ArrayList<>();
+
+
     public Usuario() {
     }
 
