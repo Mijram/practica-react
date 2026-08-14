@@ -1,10 +1,10 @@
 package com.curso.tienda.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * MODULO 2 — EJERCICIO 1: escribe las relaciones de esta entidad.
@@ -39,20 +39,34 @@ import java.time.LocalDate;
  *         Piensa antes de escribirlo: ¿deberia llevar cascade = ALL?
  *         Justifica tu respuesta en un comentario.
  */
+
+@Entity
+@Table(name="resenas")
 public class Resena {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     @Min(1)
     @Max(5)
+    @Column(name = "calificacion", nullable = false)
     private int calificacion;
 
+    @Column(name = "comentario", length = 500)
+    @Size(max = 500)
     private String comentario;
 
+    @Column(name = "fecha", nullable = false)
+    @NotNull
     private LocalDate fecha;
 
     public Resena() {
@@ -66,12 +80,20 @@ public class Resena {
         this.fecha = LocalDate.now();
     }
 
+    //fecha como .now() si vienen null
+    @PrePersist
+    private void alGuardar(){
+        if(fecha == null){
+            fecha = LocalDate.now();
+        }
+    }
+
     /**
      * TODO 7: una resena es positiva si la calificacion es 4 o 5.
      * Devuelve false mientras no lo implementes.
      */
     public boolean esPositiva() {
-        return false;
+        return calificacion >= 4 && calificacion <= 5;
     }
 
     /**
@@ -79,7 +101,7 @@ public class Resena {
      * Devuelve false mientras no lo implementes.
      */
     public boolean esCritica() {
-        return false;
+        return calificacion <=2;
     }
 
     public Long getId() {
@@ -124,6 +146,22 @@ public class Resena {
 
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(this == o){
+            return true;
+        }
+        if(!(o instanceof  Resena otro)){
+            return false;
+        }
+        return id != null && Objects.equals(id, otro.id);
+    }
+
+    @Override
+    public int hashCode(){
+        return getClass().hashCode();
     }
 
     @Override

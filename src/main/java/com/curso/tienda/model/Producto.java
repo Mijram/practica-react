@@ -5,9 +5,7 @@ import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * MODULO 1 — EJEMPLO: entidad con tipos reales y una clave foranea.
@@ -121,6 +119,15 @@ public class Producto {
             inverseJoinColumns = @JoinColumn(name = "etiqueta_id")
     )
     private Set<Etiqueta> etiquetas = new HashSet<>();
+
+    /*
+    orphanRemoval y cascade no se agregan ya que las reseñas son del usuario
+    y dependen del producto
+     */
+
+    @OneToMany(mappedBy = "producto",
+            fetch = FetchType.LAZY)
+    private List<Resena> resenas = new ArrayList<>();
 
     // ---------------------------------------------------------------
     //  Constructores
@@ -253,6 +260,14 @@ public class Producto {
 
     public Set<Etiqueta> getEtiquetas() {
         return etiquetas;
+    }
+
+    public List<Resena> getResenas() {
+        return resenas;
+    }
+
+    public void setResenas(List<Resena> resenas) {
+        this.resenas = resenas;
     }
 
     /**
