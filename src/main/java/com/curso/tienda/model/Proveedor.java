@@ -108,9 +108,10 @@ public class Proveedor {
     public Proveedor() {
     }
 
-    public Proveedor(String nombre, String pais, int diasEntrega) {
+    public Proveedor(String nombre, String pais, String email, int diasEntrega) {
         this.nombre = nombre;
         this.pais = pais;
+        this.email = email;
         this.diasEntrega = diasEntrega;
         this.activo = true;
     }
