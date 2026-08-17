@@ -10,7 +10,7 @@ Cada módulo trae **1 ejemplo funcionando y comentado línea por línea** y **2 
 
 | # | Módulo | Duración | Ejercicios |
 |---|---|---|---|
-| 01 | JPA, Hibernate y tu primera entidad | 15 min | Completar `Proveedor` · Diseñar `Almacen` desde cero |
+| 01 | JPA, Hibernate y tu primera entidad | 15 min | Completar `ProveedorDTO` · Diseñar `Almacen` desde cero |
 | 02 | Relaciones entre entidades | 20 min | Mapear `Resena` y su lado inverso · Cazar y eliminar un N+1 |
 | 03 | Repositorios con Spring Data JPA | 15 min | Completar 4 métodos del servicio · 6 query methods + repositorio nuevo |
 | 04 | Consultas con `@Query` y JPQL | 15 min | 10 consultas JPQL · Completar `PedidoService` y medir el coste |
@@ -119,7 +119,7 @@ Sé preciso con esto porque importa.
 
 | Defecto | Consecuencia | Corrección |
 |---|---|---|
-| `Proveedor` no era `@Entity`, pero `Producto` tiene un `@ManyToOne` hacia ella | La aplicación **no arrancaba**: `AnnotationException` | `Proveedor` es entidad; el ejercicio pasó a ser el mapeo explícito y la relación inversa |
+| `ProveedorDTO` no era `@Entity`, pero `Producto` tiene un `@ManyToOne` hacia ella | La aplicación **no arrancaba**: `AnnotationException` | `ProveedorDTO` es entidad; el ejercicio pasó a ser el mapeo explícito y la relación inversa |
 | Su campo `List<Producto>` sin anotar | `Could not determine recommended JdbcType` al arrancar | Marcado `@Transient` con el TODO de sustituirlo por `@OneToMany` |
 | `@ControllerAdvice` en vez de `@RestControllerAdvice` | Los errores devolvían 500 en lugar de 404/409: Spring buscaba una vista llamada `ErrorRespuesta` | Cambiado a `@RestControllerAdvice` |
 | `HttpStatus.ordinal()` en vez de `.value()` | El JSON de error traía códigos absurdos (3, 5) en lugar de 404 y 409 | Cambiado a `.value()` |
@@ -137,7 +137,7 @@ Ninguno de los cuatro produce error de compilación: todos fallan al arrancar o 
 5. **Rompe el ejemplo a propósito**: cambia un `LAZY` por `EAGER`, quita un `DISTINCT`, borra un `@Transactional`. Observa y deshaz.
 6. Resuelve los ejercicios donde dice `TODO`, arrancando con frecuencia.
 
-Los archivos de ejercicio **compilan y arrancan tal como están**: los métodos por completar devuelven valores neutros, y las entidades sin mapear (`Proveedor`, `Resena`) son clases Java normales que Hibernate ignora. Puedes completarlos de uno en uno sin que el proyecto se rompa.
+Los archivos de ejercicio **compilan y arrancan tal como están**: los métodos por completar devuelven valores neutros, y las entidades sin mapear (`ProveedorDTO`, `Resena`) son clases Java normales que Hibernate ignora. Puedes completarlos de uno en uno sin que el proyecto se rompa.
 
 ---
 

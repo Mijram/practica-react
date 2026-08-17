@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -266,22 +267,134 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     //  segun lo vayas resolviendo, y arranca para comprobarlo.
     //
     //  E1. Productos inactivos que todavia tienen stock.
-    //  List<Producto> findByActivoFalseAndStockGreaterThan(int stock);
-    //
-    //  E2. Productos de un proveedor concreto, buscando por el NOMBRE del
-    //      proveedor y no por su id.
-    //  List<Producto> findByProveedorNombre(String nombreProveedor);
+    List<Producto> findByActivoFalseAndStockGreaterThan(int stock);
+    //SQLHibernate:
+    //    select
+    //        p1_0.id,
+    //        p1_0.activo,
+    //        p1_0.categoria_id,
+    //        p1_0.descripcion,
+    //        p1_0.fecha_alta,
+    //        p1_0.nombre,
+    //        p1_0.precio,
+    //        p1_0.proveedor_id,
+    //        p1_0.stock
+    //    from
+    //        productos p1_0
+    //    where
+    //        not(p1_0.activo)
+    //        and p1_0.stock>?
+
+    List<Producto> findByProveedorNombre(String nombreProveedor);
+    // SQL: Hibernate:
+    //    select
+    //        p1_0.id,
+    //        p1_0.activo,
+    //        p1_0.categoria_id,
+    //        p1_0.descripcion,
+    //        p1_0.fecha_alta,
+    //        p1_0.nombre,
+    //        p1_0.precio,
+    //        p1_0.proveedor_id,
+    //        p1_0.stock
+    //    from
+    //        productos p1_0
+    //    left join
+    //        proveedores p2_0
+    //            on p2_0.id=p1_0.proveedor_id
+    //    where
+    //        p2_0.nombre=?
     //
     //  E3. Cuantos productos activos hay en una categoria.
-    //  long countByCategoriaIdAndActivoTrue(Long categoriaId);
-    //
+    long countByCategoriaIdAndActivoTrue(Long categoriaId);
+    //SQL:
+    //=== E3: countByCategoriaIdAndActivoTrue ===
+    //Hibernate:
+    //    select
+    //        count(p1_0.id)
+    //    from
+    //        productos p1_0
+    //    where
+    //        p1_0.categoria_id=?
+    //        and p1_0.activo
     //  E4. Los tres productos mas baratos de una categoria.
-    //  List<Producto> findTop3ByCategoriaIdOrderByPrecioAsc(Long categoriaId);
+    List<Producto> findTop3ByCategoriaIdOrderByPrecioAsc(Long categoriaId);
     //
+    // SQL: Hibernate:
+    //    select
+    //        p1_0.id,
+    //        p1_0.activo,
+    //        p1_0.categoria_id,
+    //        p1_0.descripcion,
+    //        p1_0.fecha_alta,
+    //        p1_0.nombre,
+    //        p1_0.precio,
+    //        p1_0.proveedor_id,
+    //        p1_0.stock
+    //    from
+    //        productos p1_0
+    //    where
+    //        p1_0.categoria_id=?
+    //    order by
+    //        p1_0.precio
+    //    fetch
+    //        first ? rows only
     //  E5. Productos dados de alta despues de una fecha, ordenados por
     //      fecha descendente.
-    //  List<Producto> findByFechaAltaAfterOrderByFechaAltaDesc(LocalDate fecha);
-    //
+    List<Producto> findByFechaAltaAfterOrderByFechaAltaDesc(LocalDate fecha);
+    //SQL: Hibernate:
+    //    select
+    //        p1_0.id,
+    //        p1_0.activo,
+    //        p1_0.categoria_id,
+    //        p1_0.descripcion,
+    //        p1_0.fecha_alta,
+    //        p1_0.nombre,
+    //        p1_0.precio,
+    //        p1_0.proveedor_id,
+    //        p1_0.stock
+    //    from
+    //        productos p1_0
+    //    where
+    //        p1_0.fecha_alta>?
+    //    order by
+    //        p1_0.fecha_alta desc
     //  E6. Productos cuyo nombre empieza por un texto Y estan activos.
-    //  List<Producto> findByNombreStartingWithAndActivoTrue(String prefijo);
+    List<Producto> findByNombreStartingWithAndActivoTrue(String prefijo);
+
+    //SQL: Hibernate:
+    //    select
+    //        p1_0.id,
+    //        p1_0.activo,
+    //        p1_0.categoria_id,
+    //        p1_0.descripcion,
+    //        p1_0.fecha_alta,
+    //        p1_0.nombre,
+    //        p1_0.precio,
+    //        p1_0.proveedor_id,
+    //        p1_0.stock
+    //    from
+    //        productos p1_0
+    //    where
+    //        p1_0.nombre like ? escape '\'
+    //        and p1_0.activo
+
+    //====metodo con error====
+
+    //public Producto findByPrecioMaximo();
+    //org.springframework.beans.factory.UnsatisfiedDependencyException:
+    // Error creating bean with name 'pedidoController' defined in file
+    // [/Users/migueljorami/Documents/bootcamp/CursoJPA/target/classes/com/curso/
+    // tienda/controller/PedidoController.class]: Unsatisfied dependency expressed
+    // through constructor parameter 0: Error creating bean with name 'pedidoService'
+    // defined in file [/Users/migueljorami/Documents/bootcamp/CursoJPA/target/classes
+    // /com/curso/tienda/service/PedidoService.class]: Unsatisfied dependency expressed
+    // through constructor parameter 2: Error creating bean with name 'productoRepository'
+    // defined in com.curso.tienda.repository.ProductoRepository defined in
+    // @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration:
+    // Could not create query for public abstract com.curso.tienda.model.Producto
+    // com.curso.tienda.repository.ProductoRepository.findByPrecioMaximo(); Reason:
+    // Failed to create query for method public abstract com.curso.tienda.model.Producto
+    // com.curso.tienda.repository.ProductoRepository.findByPrecioMaximo(); No property
+    // 'maximo' found for type 'BigDecimal'; Traversed path: Producto.precio
 }

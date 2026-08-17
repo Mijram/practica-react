@@ -13,7 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * MODULO 3, 4 y 5 — EJEMPLO: la capa de servicio.
@@ -253,7 +256,15 @@ public class ProductoService {
      * Devuelve lista vacia mientras no lo implementes.
      */
     public List<ProductoDTO> listarPorNombreDeCategoria(String nombreCategoria) {
-        return List.of();
+        if(!categoriaRepository.existsByNombre(nombreCategoria)){
+            throw new RecursoNoEncontradoException("la categoría con nombre "+ nombreCategoria + " no existe...");
+        }
+
+        List<Producto> productos = productoRepository.findByCategoriaNombre(nombreCategoria);
+
+        return productos.stream()
+                .map(ProductoDTO::desde)
+                .toList();
     }
 
     /**
@@ -267,8 +278,22 @@ public class ProductoService {
      * PISTA: para el calculo, precio.multiply(BigDecimal) y recuerda
      * usar setScale(2, RoundingMode.HALF_UP) al final.
      */
+
+    @Transactional
     public int aplicarDescuentoACategoria(Long categoriaId, int porcentaje) {
-        return 0;
+        if(porcentaje > 50 || porcentaje < 1){
+            throw new ReglaDeNegocioException("El porcentaje es mayor a 50%, porcentaje ingresado: "+ porcentaje+ "%");
+        }
+
+        List<Producto> productoDescuento = productoRepository.findByCategoriaIdAndActivoTrueOrderByPrecioAsc(categoriaId);
+
+        productoDescuento.forEach(p -> {
+            BigDecimal nuevoPrecio = p.getPrecio().multiply(BigDecimal.valueOf( 1 - porcentaje / 100))
+                    .setScale(2, RoundingMode.HALF_UP);
+            p.setPrecio(nuevoPrecio);
+        });
+
+        return productoDescuento.size();
     }
 
     /**
@@ -277,9 +302,14 @@ public class ProductoService {
      * PISTA: Producto ya tiene el metodo valorInventario().
      * PISTA: reduce(BigDecimal.ZERO, BigDecimal::add) sobre el stream.
      */
+
+    /*
     public BigDecimal calcularValorInventario() {
-        return BigDecimal.ZERO;
-    }
+        Producto producto = new Producto();
+
+        producto.valorInventario();
+
+    }*/
 
     /**
      * TODO E4: reasigna todos los productos de un proveedor a otro.
