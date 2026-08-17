@@ -262,6 +262,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     // =================================================================
     //  Documento: Modulo03_Repositorios_Spring_Data_JPA.docx, seccion 4.2
     //
+
+
     //  Estan comentados a proposito: un query method con un nombre
     //  invalido impide que la aplicacion arranque. Descomenta cada uno
     //  segun lo vayas resolviendo, y arranca para comprobarlo.
@@ -397,4 +399,19 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     // Failed to create query for method public abstract com.curso.tienda.model.Producto
     // com.curso.tienda.repository.ProductoRepository.findByPrecioMaximo(); No property
     // 'maximo' found for type 'BigDecimal'; Traversed path: Producto.precio
+
+    // Ejercicios modulo 4
+    //Q1
+    @Query(value = """
+        SELECT p FROM Producto p
+        WHERE p.precio > (SELECT AVG(p2.precio) FROM Producto p2)
+                """)
+    List<Producto> findPorEncimaDelPrecioDelCatalogo();
+
+    //Q2
+    @Query(value = """
+            SELECT p FROM Producto p WHERE NOT EXISTS
+            (SELECT 1 FROM DetallePedido d WHERE d.producto = p)
+                """)
+    List<Producto> findPorNuncaVendido();
 }

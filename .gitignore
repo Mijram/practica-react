@@ -56,6 +56,3 @@ postman/
 .env
 .env.local
 *.properties.local
-
-#AI
-.claude/*

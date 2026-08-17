@@ -41,7 +41,7 @@ public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
      * Categorias con al menos N productos activos.
      * HAVING filtra grupos, igual que en SQL.
      */
-    @Query("""
+    @Query(value = """
            SELECT c FROM Categoria c
            JOIN c.productos p
            WHERE p.activo = true

@@ -70,4 +70,14 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     //  COUNT(DISTINCT p.id) y no COUNT(p): al unir con DetallePedido, un
     //  pedido de cuatro lineas aparece cuatro veces. Sin DISTINCT
     //  contarias lineas, no pedidos.
+
+    //Q4
+    @Query(value = """
+           SELECT u FROM Usuario u
+           JOIN u.pedidos p
+           LEFT JOIN p.detalles d
+           LEFT JOIN d.producto pr
+           WHERE (SELECT COUNT(u) WHERE pr.categoria = )
+                """)
+    List<Usuario> findMasTresCategoriasDistintas();
 }

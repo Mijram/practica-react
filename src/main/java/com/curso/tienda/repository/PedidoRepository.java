@@ -91,4 +91,16 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
            ORDER BY p.estado
            """)
     List<Object[]> resumenPorEstado();
+
+    //Q3
+
+    @Query("""
+           SELECT p.nombre, c.nombre, SUM(d.cantidad)
+           FROM DetallePedido d
+           JOIN d.producto p
+           LEFT JOIN p.categoria c
+           GROUP BY p.nombre, c.nombre
+           ORDER BY SUM(d.cantidad) DESC
+                """)
+    List<Object[]> productosMasVendidos(Pageable pageable);
 }
