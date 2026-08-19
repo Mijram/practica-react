@@ -73,11 +73,15 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     //Q4
     @Query(value = """
-           SELECT u FROM Usuario u
-           JOIN u.pedidos p
+           SELECT u.nombre, u.apellido, COUNT(DISTINCT c.id)
+           FROM Usuario u
+           INNER JOIN u.pedidos p
            LEFT JOIN p.detalles d
            LEFT JOIN d.producto pr
-           WHERE (SELECT COUNT(u) WHERE pr.categoria = )
+           LEFT JOIN pr.categoria c
+           WHERE p.estado <> com.curso.tienda.model.EstadoPedido.CANCELADO
+           GROUP BY u.id, u.nombre, u.apellido
+           HAVING COUNT(DISTINCT c.id) > 3
                 """)
-    List<Usuario> findMasTresCategoriasDistintas();
+    List<Object[]> findMasTresCategoriasDistintas();
 }

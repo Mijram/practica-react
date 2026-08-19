@@ -94,7 +94,7 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     //Q3
 
-    @Query("""
+    @Query(value = """
            SELECT p.nombre, c.nombre, SUM(d.cantidad)
            FROM DetallePedido d
            JOIN d.producto p
@@ -103,4 +103,10 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
            ORDER BY SUM(d.cantidad) DESC
                 """)
     List<Object[]> productosMasVendidos(Pageable pageable);
+
+    //Q5
+    @Query(value = """
+        SELECT 
+                """)
+    List<Object[]> facturacionPorMes2025();
 }
