@@ -1,0 +1,27 @@
+footer{
+    background-color: #ffe600;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    color: #2d3277;
+}
+
+footer section{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 900px) {
+    footer{
+        display: flex;
+        flex-direction: row;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-between;
+    }
+    footer section{
+        margin: 20px;
+    }
+
+}

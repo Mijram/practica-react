@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "categoria": "tecnologia",
+    "precio": 2499,
+    "nombre": "Laptop Pro 14",
+    "imgen": "/imagenes/laptop-pro-14.jpg",
+    "descripcion": "Portatil de 14 pulgadas con procesador de alto rendimiento y 16 GB de RAM.",
+    "calificacion": 4
+  },
+  {
+    "id": 2,
+    "categoria": "tecnologia",
+    "precio": 899,
+    "nombre": "Audifonos Bluetooth",
+    "imgen": "/imagenes/audifonos-bluetooth.jpg",
+    "descripcion": "Audifonos inalambricos con cancelacion de ruido y estuche de carga.",
+    "calificacion": 3
+  },
+  {
+    "id": 3,
+    "categoria": "tecnologia",
+    "precio": 1299,
+    "nombre": "Smartwatch Active",
+    "imgen": "/imagenes/smartwatch-active.jpg",
+    "descripcion": "Reloj inteligente con monitor de frecuencia cardiaca y GPS integrado.",
+    "calificacion": 4
+  },
+  {
+    "id": 4,
+    "categoria": "tecnologia",
+    "precio": 1799,
+    "nombre": "Tablet 11 pulgadas",
+    "imgen": "/imagenes/tablet-11.jpg",
+    "descripcion": "Tablet con pantalla de alta resolucion, 128 GB de almacenamiento y lapiz digital.",
+    "calificacion": 5
+  },
+  {
+    "id": 5,
+    "categoria": "tecnologia",
+    "precio": 649,
+    "nombre": "Teclado Mecanico RGB",
+    "imgen": "/imagenes/teclado-mecanico-rgb.jpg",
+    "descripcion": "Teclado mecanico compacto con iluminacion RGB y teclas programables.",
+    "calificacion": 3
+  },
+  {
+    "id": 6,
+    "categoria": "tecnologia",
+    "precio": 1099,
+    "nombre": "Monitor Ultra HD 27",
+    "imgen": "/imagenes/monitor-ultra-hd-27.jpg",
+    "descripcion": "Monitor de 27 pulgadas con resolucion Ultra HD y panel de colores precisos.",
+    "calificacion": 4
+  },
+  {
+    "id": 7,
+    "categoria": "tecnologia",
+    "precio": 529,
+    "nombre": "Mouse Inalambrico",
+    "imgen": "/imagenes/mouse-inalambrico.jpg",
+    "descripcion": "Mouse ergonomico con conexion inalambrica, bateria recargable y alta precision.",
+    "calificacion": 2
+  },
+  {
+    "id": 8,
+    "categoria": "tecnologia",
+    "precio": 1899,
+    "nombre": "Consola de Videojuegos",
+    "imgen": "/imagenes/consola-videojuegos.jpg",
+    "descripcion": "Consola de nueva generacion con almacenamiento de alta velocidad y control inalambrico.",
+    "calificacion": 4
+  },
+  {
+    "id": 9,
+    "categoria": "tecnologia",
+    "precio": 779,
+    "nombre": "Camara Web Full HD",
+    "imgen": "/imagenes/camara-web-full-hd.jpg",
+    "descripcion": "Camara web Full HD con microfono integrado y enfoque automatico.",
+    "calificacion": 3
+  },
+  {
+    "id": 10,
+    "categoria": "tecnologia",
+    "precio": 999,
+    "nombre": "Disco SSD 1 TB",
+    "imgen": "/imagenes/disco-ssd-1tb.jpg",
+    "descripcion": "Unidad de estado solido de 1 TB con transferencia de datos de alta velocidad.",
+    "calificacion": 5
+  },
+  {
+    "id": 11,
+    "categoria": "ropa",
+    "precio": 129,
+    "nombre": "Camiseta de Algodon",
+    "imgen": "/imagenes/camiseta-algodon.jpg",
+    "descripcion": "Camiseta basica de algodon suave, ideal para uso diario.",
+    "calificacion": 3
+  },
+  {
+    "id": 12,
+    "categoria": "ropa",
+    "precio": 299,
+    "nombre": "Jeans Clasicos",
+    "imgen": "/imagenes/jeans-clasicos.jpg",
+    "descripcion": "Pantalon jean de corte recto con tela resistente y comoda.",
+    "calificacion": 4
+  },
+  {
+    "id": 13,
+    "categoria": "ropa",
+    "precio": 459,
+    "nombre": "Chaqueta Impermeable",
+    "imgen": "/imagenes/chaqueta-impermeable.jpg",
+    "descripcion": "Chaqueta ligera con capucha y proteccion contra la lluvia.",
+    "calificacion": 3
+  },
+  {
+    "id": 14,
+    "categoria": "ropa",
+    "precio": 189,
+    "nombre": "Sudadera con Capucha",
+    "imgen": "/imagenes/sudadera-capucha.jpg",
+    "descripcion": "Sudadera de felpa con capucha ajustable y bolsillo frontal.",
+    "calificacion": 2
+  },
+  {
+    "id": 15,
+    "categoria": "ropa",
+    "precio": 239,
+    "nombre": "Vestido Floral",
+    "imgen": "/imagenes/vestido-floral.jpg",
+    "descripcion": "Vestido ligero con estampado floral y corte comodo para clima calido.",
+    "calificacion": 4
+  },
+  {
+    "id": 16,
+    "categoria": "ropa",
+    "precio": 349,
+    "nombre": "Zapatos Deportivos",
+    "imgen": "/imagenes/zapatos-deportivos.jpg",
+    "descripcion": "Zapatos deportivos con suela acolchada y material transpirable.",
+    "calificacion": 3
+  },
+  {
+    "id": 17,
+    "categoria": "ropa",
+    "precio": 159,
+    "nombre": "Gorra Ajustable",
+    "imgen": "/imagenes/gorra-ajustable.jpg",
+    "descripcion": "Gorra casual con visera curva y cierre ajustable en la parte posterior.",
+    "calificacion": 5
+  },
+  {
+    "id": 18,
+    "categoria": "ropa",
+    "precio": 219,
+    "nombre": "Pantalon Deportivo",
+    "imgen": "/imagenes/pantalon-deportivo.jpg",
+    "descripcion": "Pantalon deportivo de tela flexible con pretina elastica y bolsillos laterales.",
+    "calificacion": 4
+  },
+  {
+    "id": 19,
+    "categoria": "ropa",
+    "precio": 279,
+    "nombre": "Blusa de Lino",
+    "imgen": "/imagenes/blusa-lino.jpg",
+    "descripcion": "Blusa de lino de manga corta con acabado fresco y elegante.",
+    "calificacion": 3
+  },
+  {
+    "id": 20,
+    "categoria": "ropa",
+    "precio": 399,
+    "nombre": "Botas de Cuero",
+    "imgen": "/imagenes/botas-cuero.jpg",
+    "descripcion": "Botas de cuero con suela antideslizante y cierre lateral.",
+    "calificacion": 1
+  },
+  {
+    "id": 21,
+    "categoria": "electrodomesticos",
+    "precio": 699,
+    "nombre": "Licuadora Multifuncional",
+    "imgen": "/imagenes/licuadora-multifuncional.jpg",
+    "descripcion": "Licuadora de 1.5 litros con cinco velocidades y cuchillas de acero.",
+    "calificacion": 4
+  },
+  {
+    "id": 22,
+    "categoria": "electrodomesticos",
+    "precio": 1199,
+    "nombre": "Freidora de Aire",
+    "imgen": "/imagenes/freidora-aire.jpg",
+    "descripcion": "Freidora de aire de 5 litros con panel digital y temporizador.",
+    "calificacion": 3
+  },
+  {
+    "id": 23,
+    "categoria": "electrodomesticos",
+    "precio": 1599,
+    "nombre": "Aspiradora Robot",
+    "imgen": "/imagenes/aspiradora-robot.jpg",
+    "descripcion": "Aspiradora robot con mapeo inteligente y control desde aplicacion movil.",
+    "calificacion": 4
+  },
+  {
+    "id": 24,
+    "categoria": "electrodomesticos",
+    "precio": 899,
+    "nombre": "Cafetera Programable",
+    "imgen": "/imagenes/cafetera-programable.jpg",
+    "descripcion": "Cafetera con temporizador, filtro reutilizable y capacidad para doce tazas.",
+    "calificacion": 5
+  },
+  {
+    "id": 25,
+    "categoria": "electrodomesticos",
+    "precio": 1399,
+    "nombre": "Horno Microondas Digital",
+    "imgen": "/imagenes/microondas-digital.jpg",
+    "descripcion": "Horno microondas de 20 litros con programas automaticos y panel digital.",
+    "calificacion": 3
+  },
+  {
+    "id": 26,
+    "categoria": "electrodomesticos",
+    "precio": 749,
+    "nombre": "Plancha a Vapor",
+    "imgen": "/imagenes/plancha-vapor.jpg",
+    "descripcion": "Plancha a vapor con base antiadherente y control de temperatura.",
+    "calificacion": 4
+  },
+  {
+    "id": 27,
+    "categoria": "electrodomesticos",
+    "precio": 2199,
+    "nombre": "Lavadora Carga Frontal",
+    "imgen": "/imagenes/lavadora-carga-frontal.jpg",
+    "descripcion": "Lavadora de carga frontal con capacidad de 12 kilogramos y ciclo rapido.",
+    "calificacion": 2
+  },
+  {
+    "id": 28,
+    "categoria": "electrodomesticos",
+    "precio": 469,
+    "nombre": "Tostadora de Pan",
+    "imgen": "/imagenes/tostadora-pan.jpg",
+    "descripcion": "Tostadora de dos ranuras con seis niveles de dorado y bandeja recogemigas.",
+    "calificacion": 3
+  },
+  {
+    "id": 29,
+    "categoria": "electrodomesticos",
+    "precio": 1899,
+    "nombre": "Refrigerador Compacto",
+    "imgen": "/imagenes/refrigerador-compacto.jpg",
+    "descripcion": "Refrigerador compacto con congelador superior y control de temperatura ajustable.",
+    "calificacion": 4
+  },
+  {
+    "id": 30,
+    "categoria": "electrodomesticos",
+    "precio": 629,
+    "nombre": "Ventilador de Torre",
+    "imgen": "/imagenes/ventilador-torre.jpg",
+    "descripcion": "Ventilador de torre silencioso con tres velocidades, oscilacion y temporizador.",
+    "calificacion": 1
+  }
+]

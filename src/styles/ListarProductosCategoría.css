@@ -1,0 +1,45 @@
+*{
+    color: #2d3277;
+    border-color: #2d3277;
+}
+main,
+.grid-productos{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.categoriaCard{
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 1% 5% 2%;
+    border: 2px solid;
+    background-color: #e0e0e0;
+    padding: 1%;
+    gap: 10px;
+}
+
+.categoriaCard h2{
+    text-transform: uppercase;
+    border-bottom: 2px solid #2d3277;
+    font-size: 24px;
+}
+
+.grid-productos{
+    background-color: #ffe600;
+    border: 2px solid;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+@media(min-width: 900px){
+    .categoriaCard{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .categoriaCard h2{
+        grid-column: 1/-1;
+    }
+}

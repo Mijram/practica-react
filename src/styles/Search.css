@@ -1,0 +1,20 @@
+.searchContainer{
+    background-color: transparent;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.searchBar{
+    outline: none;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+
+}
