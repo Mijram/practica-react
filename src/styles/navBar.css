@@ -27,14 +27,17 @@ nav{
     width: 15%;
 }
 
-.categorias a{
+.categorias button{
+    border: none;
+    text-decoration: none;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #2d3277;
     font-size: 15px;
-    border-radius: 12px;
-    text-decoration: none;
+    padding: 0;
+    margin: 0;
 }
 
 @media (min-width: 900px) {
@@ -57,11 +60,11 @@ nav{
     .categorias{
         grid-column: 1 / -1;
         flex-direction: row;
-        flex-wrap: wrap;
+
         justify-content: space-between;
     }
 
-    .categorias a{
+    .categorias button{
         width: 30%;
     }
 }

@@ -16,5 +16,12 @@
     border-radius: 10px;
     width: 100%;
     padding: 10px;
+}
+
+@media(min-width: 900px){
+    .searchContainer{
+        justify-content: left;
+        margin-right: 30%
+    }
 
 }
