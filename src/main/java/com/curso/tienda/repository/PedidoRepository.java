@@ -106,7 +106,13 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     //Q5
     @Query(value = """
-        SELECT 
+        SELECT FUNCTION('date_trunc', 'month', p.fecha), SUM(d.cantidad * d.precioUnitario), SUM(p.costoEnvio)
+        FROM Pedido p
+        JOIN p.detalles d
+        WHERE YEAR(p.fecha) = 2025
+        AND p.estado <> com.curso.tienda.model.EstadoPedido.CANCELADO
+        GROUP BY FUNCTION('date_trunc', 'month', p.fecha)
+        ORDER BY FUNCTION('date_trunc', 'month', p.fecha) ASC
                 """)
     List<Object[]> facturacionPorMes2025();
 }
