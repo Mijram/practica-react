@@ -1,9 +1,14 @@
+//componentes
 import ListarProductosCategoria from "./components/Productos/ListarProductosCategoria.jsx";
 import NavBar from "./components/nav/NavBar.jsx"
-
-import './App.css'
 import Footer from "./components/Footer.jsx";
+
+//utils
+import './App.css'
 import { useState } from 'react';
+
+//pages
+
 
 function App() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(null);

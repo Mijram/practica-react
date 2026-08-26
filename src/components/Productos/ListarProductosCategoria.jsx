@@ -2,18 +2,8 @@ import { useEffect, useState } from 'react';
 import { Productos as obtenerProductos } from '../../api/Productos.jsx';
 import { Categorias as obtenerCategorias } from '../../api/Categorias.jsx';
 import '../../styles/ListarProductosCategoría.css';
-import {formatPrecio} from "../Formmaters/FormatPrice.jsx";
 import { formatText } from '../Formmaters/FormatText.jsx';
-
-function Product({ nombre, descripcion, precio }) { // se debe implementar calificacion
-    return (
-        <article className="grid-productos">
-            <h3>{nombre}</h3>
-            <p>{descripcion}</p>
-            <p className="precio">{precio}</p>
-        </article>
-    );
-}
+import ProductCard from "./ProductCard.jsx";
 
 function Categoria({ nombreCategoria, productos }) {
     const productoCategoria = productos.filter(
@@ -26,12 +16,9 @@ function Categoria({ nombreCategoria, productos }) {
         <section className="categoriaCard">
             <h2><strong>{nombreCategoria}</strong></h2>
             {productoCategoria.map((producto) => (
-                <Product
+                <ProductCard
                     key={producto.id}
-                    nombre={producto.nombre}
-                    descripcion={producto.descripcion}
-                    precio={formatPrecio(producto.precio)}
-                    calificacion={producto.calificacion}
+                    producto={producto}
                 />
             ))}
         </section>

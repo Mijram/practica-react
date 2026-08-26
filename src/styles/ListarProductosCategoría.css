@@ -34,6 +34,10 @@ main,
     margin: 2px;
 }
 
+.grid-productos img{
+    width: 100%
+}
+
 @media(min-width: 900px){
     .categoriaCard{
         display: grid;
