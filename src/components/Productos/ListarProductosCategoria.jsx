@@ -42,8 +42,6 @@ export default function ListarProductosCategoria({ categoriaSeleccionada, produc
     const [productos, setProductos] = useState([]);
     const [categorias, setCategorias] = useState([]);
 
-    console.log("proximo a llamar api...");
-
     useEffect(() => {
         async function cargarProductos() {
             try {
