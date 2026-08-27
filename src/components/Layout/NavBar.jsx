@@ -1,11 +1,15 @@
+import {useEffect, useState} from "react";
+import { useNavigate, Link } from 'react-router-dom';
+
 import '../../styles/Layout/NavBar.css';
 import Search from "./Search.jsx";
-import {useEffect, useState} from "react";
 import {CategoriasApi as obtenerCategorias} from "../../api/CategoriasApi.jsx";
 import logo from "/src/assets/logo.svg"
 
 
 export default function NavBar(){
+    //const navigate = useNavigate();
+    //let handleClick = navigate('/')
     const [categorias, setCategorias] = useState([]);
     useEffect(() => {
         async function cargarCategorias(){
@@ -27,12 +31,11 @@ export default function NavBar(){
                 </a>
                 <Search/>
                 <section className="categorias">
-                    <p>categorias</p>
                     {categorias.map((categoria) => (
-                        <button
+                        <Link className="categoriasLink" to={`/${categoria.nombre}`}
                             key={categoria.id}>
                             {categoria.nombre}
-                        </button>
+                        </Link>
                     ))}
                 </section>
             </nav>

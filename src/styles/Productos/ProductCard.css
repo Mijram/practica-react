@@ -9,11 +9,10 @@
 
 .ProductCard h3{
     border-bottom: 2px solid rgb(159 159 178 / 0.5);
-
 }
 
 .ProductCard img{
-    width: 100%;
+    width: 90%;
     margin-bottom : 15px;
 }
 
@@ -24,6 +23,6 @@
 
 @media (min-width: 900px){
     .ProductCard{
-        margin: 50px;
+        width: 15%;
     }
 }

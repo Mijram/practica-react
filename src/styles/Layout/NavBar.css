@@ -14,15 +14,13 @@ nav{
     display: flex;
     flex-direction: column;
     gap: 12px;
+    justify-content: space-between;
 }
 
-.categorias button{
-    border: none;
+.categoriasLink{
     text-decoration: none;
-    background-color: transparent;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     color: #2d3277;
     font-size: 15px;
     padding: 0;
@@ -55,11 +53,9 @@ nav{
     .categorias{
         grid-column: 1 / -1;
         flex-direction: row;
-
+        margin-left: 10px;
+        margin-right: 10px;
         justify-content: space-between;
     }
 
-    .categorias button{
-        width: 30%;
-    }
 }
