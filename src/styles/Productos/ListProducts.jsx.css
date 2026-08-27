@@ -1,0 +1,8 @@
+@media(min-width: 900px){
+    .listProductos{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 2%;
+    }
+
+}

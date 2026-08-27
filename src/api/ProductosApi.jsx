@@ -2,7 +2,7 @@ const BASE_URL = "http://localhost:8080/api"
 
 export async function ProductosApi (){
     try{
-        const consulta = await fetch(`${BASE_URL}/categorias`)
+        const consulta = await fetch(`${BASE_URL}/productos`)
         if (!consulta.ok){
             throw new Error("Error en la respuesta del servidor");
         }

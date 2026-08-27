@@ -1,0 +1,29 @@
+.ProductCard{
+    background-color: white;
+    border: 1px solid rgb(159 159 178 / 0.5);
+    margin: 20px;
+}
+.ProductCard:hover{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.ProductCard h3{
+    border-bottom: 2px solid rgb(159 159 178 / 0.5);
+
+}
+
+.ProductCard img{
+    width: 100%;
+    margin-bottom : 15px;
+}
+
+.descripcion{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+@media (min-width: 900px){
+    .ProductCard{
+        margin: 50px;
+    }
+}

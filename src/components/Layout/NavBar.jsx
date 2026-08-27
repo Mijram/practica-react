@@ -27,9 +27,7 @@ export default function NavBar(){
                 </a>
                 <Search/>
                 <section className="categorias">
-                    <button>
-                        Todas las categorías
-                    </button>
+                    <p>categorias</p>
                     {categorias.map((categoria) => (
                         <button
                             key={categoria.id}>
