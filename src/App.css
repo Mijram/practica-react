@@ -2,6 +2,7 @@ html,
 body{
   background-color: white;
   color: black;
+  min-height: 100%;
 }
 @font-face {
   font-family: 'JetBrainsMono Nerd Font';

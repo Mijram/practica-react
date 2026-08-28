@@ -30,7 +30,7 @@ export default function NavBar(){
                     <img src={logo} alt="Marketplace" />
                 </a>
                 <Search/>
-                <Link className="carrito" to={"/carrito"}>
+                <Link className="carritoButton" to={"/carrito"}>
                      carrito
                 </Link>
                 <section className="categorias">

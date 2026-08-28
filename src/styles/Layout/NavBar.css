@@ -17,6 +17,12 @@ nav{
     justify-content: space-between;
 }
 
+.carritoButton{
+    text-decoration: none;
+    color: #2d3277;
+    font-size: 15px;
+}
+
 .categoriasLink{
     text-decoration: none;
     display: flex;
@@ -41,12 +47,13 @@ nav{
         justify-content: left;
     }
 
+
     .logo img{
-        width: 30%;
+        width: 15%;
     }
 
     nav{
-        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         align-items: center;
     }
 

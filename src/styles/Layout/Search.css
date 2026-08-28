@@ -21,6 +21,6 @@
 @media(min-width: 900px){
     .searchContainer{
         justify-content: left;
-        margin-right: 30%
+        margin: 0;
     }
 }
