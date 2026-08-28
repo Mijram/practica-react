@@ -1,31 +1,14 @@
-import {ProductosApi} from "../../api/ProductosApi.jsx";
-import {useEffect, useState} from "react";
 import ProductCard from "./ProductCard.jsx";
-import "/src/styles/Productos/ListProducts.jsx.css"
+import "/src/styles/Productos/ListProducts.css"
 
 
+//componente para listar productos de forma dinamica según la entrada o el filtro
+export default function ListProductos({productos}){
 
-export default function ListProductos(){
 
-    const [getProducto, setProductos] = useState([]);
-
-    useEffect(()=> {
-        async function cargarProductos(){
-            try{
-                const productos = await ProductosApi();
-                setProductos(productos);
-                console.log("Productos conseguidos");
-            }
-            catch(e){
-                console.log("Error al obtener productos", e);
-                throw e
-            }
-        }
-        cargarProductos();
-    }, []);
     return(
         <main className="listProductos">
-            {getProducto.map((productoActual) => (
+            {productos.map((productoActual) => (
                     <ProductCard
                     key={productoActual.id}
                     producto={productoActual}

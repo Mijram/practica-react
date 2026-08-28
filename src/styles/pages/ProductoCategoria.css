@@ -1,0 +1,7 @@
+.ProductoCategoria h1{
+    color: black;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgb(159 159 178 / 0.5);
+    margin-left: 20px;
+    margin-right: 20px;
+}

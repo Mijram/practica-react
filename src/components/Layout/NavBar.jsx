@@ -30,9 +30,10 @@ export default function NavBar(){
                     <img src={logo} alt="Marketplace" />
                 </a>
                 <Search/>
+                <Link className="carrito" to="/carrito"></Link>
                 <section className="categorias">
                     {categorias.map((categoria) => (
-                        <Link className="categoriasLink" to={`/${categoria.nombre}`}
+                        <Link className="categoriasLink" to={`/categorias/${categoria.nombre}`}
                             key={categoria.id}>
                             {categoria.nombre}
                         </Link>

@@ -4,6 +4,12 @@ body{
   color: black;
 }
 
+@font-face {
+  font-family: 'JetBrainsMono Nerd Font';
+  font-weight: normal;
+  font-style: normal;
+}
+
 #root{
   width: 100%
 }
