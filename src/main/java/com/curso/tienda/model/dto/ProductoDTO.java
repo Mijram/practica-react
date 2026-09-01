@@ -39,7 +39,8 @@ public record ProductoDTO(
         int stock,
         boolean activo,
         String categoria,
-        String proveedor
+        String proveedor,
+        String imagen
 ) {
 
     /**
@@ -59,7 +60,8 @@ public record ProductoDTO(
                 p.getStock(),
                 p.isActivo(),
                 p.getCategoria() != null ? p.getCategoria().getNombre() : null,
-                p.getProveedor() != null ? p.getProveedor().getNombre() : "Sin proveedor"
+                p.getProveedor() != null ? p.getProveedor().getNombre() : "Sin proveedor",
+                p.getImagen()
         );
     }
 }

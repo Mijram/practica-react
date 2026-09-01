@@ -1,6 +1,7 @@
 package com.curso.tienda.repository;
 
 import com.curso.tienda.model.Usuario;
+import com.curso.tienda.model.dto.CarritoDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -84,4 +85,29 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
            HAVING COUNT(DISTINCT c.id) > 3
                 """)
     List<Object[]> findMasTresCategoriasDistintas();
+
+    //carrito por usuario id
+    @Query(value = """
+                SELECT new com.curso.tienda.model.dto.CarritoDTO(
+                      u.id       AS usuario_id,
+                      u.nombre   AS usuario_nombre,
+                      u.apellido AS usuario_apellido,
+                	  p.nombre   AS producto_nombre,
+                	  p.stock    AS producto_stock,
+                	  pr.nombre  AS proveedor_nombre,
+                      dp.cantidad,
+                      dp.precioUnitario,
+                	  pe.costoEnvio,
+                      (dp.cantidad * dp.precioUnitario) AS precio_final)
+                      
+                  FROM Usuario u
+                  JOIN u.pedidos pe
+                  JOIN  pe.detalles dp
+                  JOIN  dp.producto p
+                  LEFT JOIN  p.proveedor pr
+                  WHERE u.id = :id
+                  AND pe.estado = com.curso.tienda.model.EstadoPedido.PENDIENTE
+                  ORDER BY pe.fecha DESC, p.nombre
+        """)
+    List<CarritoDTO> carritoByUsuarioId(@Param("id") Long id);
 }

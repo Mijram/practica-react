@@ -129,6 +129,10 @@ public class Producto {
             fetch = FetchType.LAZY)
     private List<Resena> resenas = new ArrayList<>();
 
+    //imagenes
+    @Size(max = 256)
+    private String imagen;
+
     // ---------------------------------------------------------------
     //  Constructores
     // ---------------------------------------------------------------
@@ -268,6 +272,17 @@ public class Producto {
 
     public void setResenas(List<Resena> resenas) {
         this.resenas = resenas;
+    }
+
+    //imagen get - set
+
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
     }
 
     /**

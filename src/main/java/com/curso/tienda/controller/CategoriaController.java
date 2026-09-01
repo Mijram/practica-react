@@ -1,7 +1,10 @@
 package com.curso.tienda.controller;
 
 import com.curso.tienda.model.Categoria;
+import com.curso.tienda.model.dto.CategoriaDTO;
 import com.curso.tienda.repository.CategoriaRepository;
+import com.curso.tienda.service.CategoriaService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,23 +30,25 @@ import java.util.List;
  * CategoriaService y CategoriaDTO y haz que el controlador solo hable con
  * el servicio. Compara el JSON antes y despues.
  */
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/categorias")
 public class CategoriaController {
 
-    private final CategoriaRepository categoriaRepository;
+    private final CategoriaService categoriaService;
 
-    public CategoriaController(CategoriaRepository categoriaRepository) {
-        this.categoriaRepository = categoriaRepository;
+
+    public CategoriaController(CategoriaService categoriaService) {
+        this.categoriaService = categoriaService;
     }
 
     @GetMapping
-    public List<Categoria> listar() {
-        return categoriaRepository.findByActivaTrueOrderByNombreAsc();
+    public List<CategoriaDTO> listar() {
+        return categoriaService.categorias();
     }
 
-    @GetMapping("/sin-productos")
-    public List<Categoria> sinProductos() {
-        return categoriaRepository.findSinProductos();
-    }
+//    @GetMapping("/sin-productos")
+//    public List<Categoria> sinProductos() {
+//        return categoriaRepository.findSinProductos();
+//    }
 }

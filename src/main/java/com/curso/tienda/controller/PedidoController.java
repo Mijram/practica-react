@@ -1,6 +1,7 @@
 package com.curso.tienda.controller;
 
 import com.curso.tienda.model.EstadoPedido;
+import com.curso.tienda.model.dto.CarritoDTO;
 import com.curso.tienda.model.dto.PaginaDTO;
 import com.curso.tienda.model.dto.PedidoResumenDTO;
 import com.curso.tienda.service.PedidoService;
@@ -67,6 +68,11 @@ public class PedidoController {
     @GetMapping("/usuario/{usuarioId}")
     public List<PedidoResumenDTO> deUsuario(@PathVariable Long usuarioId) {
         return pedidoService.listarDeUsuario(usuarioId);
+    }
+
+    @GetMapping("/usuario/carrito/{usuarioId}")
+    public List<CarritoDTO> carritoUsuario(@PathVariable Long usuarioId){
+        return pedidoService.carritoPorUsuarioId(usuarioId);
     }
 
     /**

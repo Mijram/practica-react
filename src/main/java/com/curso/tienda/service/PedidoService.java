@@ -5,6 +5,7 @@ import com.curso.tienda.model.EstadoPedido;
 import com.curso.tienda.model.Pedido;
 import com.curso.tienda.model.Producto;
 import com.curso.tienda.model.Usuario;
+import com.curso.tienda.model.dto.CarritoDTO;
 import com.curso.tienda.model.dto.PedidoResumenDTO;
 import com.curso.tienda.repository.PedidoRepository;
 import com.curso.tienda.repository.ProductoRepository;
@@ -165,6 +166,16 @@ public class PedidoService {
 
         pedido.setEstado(nuevoEstado);
         return PedidoResumenDTO.desde(pedido);
+    }
+
+    public List<CarritoDTO> carritoPorUsuarioId(Long id){
+        List<CarritoDTO> carrito = usuarioRepository.carritoByUsuarioId(id);
+
+        if(carrito.isEmpty()){
+            throw new RecursoNoEncontradoException("No se encontro un carrito asociado al id del usuario");
+        }
+
+        return carrito;
     }
 
     // =================================================================

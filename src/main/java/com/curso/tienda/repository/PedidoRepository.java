@@ -115,4 +115,15 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
         ORDER BY FUNCTION('date_trunc', 'month', p.fecha) ASC
                 """)
     List<Object[]> facturacionPorMes2025();
+
+    //Q6
+    //El uso del native query fue necesario, ya que su uso normal en JPQL
+    //no existe una palabra clave llamada interval. Por lo que usar nativeQuery
+    //que en este caso es psql
+    @Query(value = """
+        SELECT * FROM pedidos p
+        WHERE p.estado = 'PENDIENTE'
+        AND p.fecha < CURRENT_DATE - INTERVAL '30 days'
+        """, nativeQuery = true)
+    List<Pedido> pedidosMas30DiasPendientes();
 }

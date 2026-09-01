@@ -36,6 +36,8 @@ import java.util.List;
  * @RestController = @Controller + @ResponseBody: todo lo que devuelvan
  * los metodos se convierte a JSON automaticamente.
  */
+
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/productos")
 public class ProductoController {
