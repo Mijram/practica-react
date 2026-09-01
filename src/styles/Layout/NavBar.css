@@ -8,6 +8,7 @@ nav{
     display: grid;
     grid-template-columns: 1fr;
     gap: 12px;
+    justify-content: space-between;
 }
 
 .categorias{
@@ -55,14 +56,6 @@ nav{
     nav{
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
-    }
-
-    .categorias{
-        grid-column: 1 / -1;
-        flex-direction: row;
-        margin-left: 10px;
-        margin-right: 10px;
-        justify-content: space-between;
     }
 
 }

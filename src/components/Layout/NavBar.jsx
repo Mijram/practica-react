@@ -1,27 +1,10 @@
-import {useEffect, useState} from "react";
-import { useNavigate, Link } from 'react-router-dom';
-
 import '../../styles/Layout/NavBar.css';
 import Search from "./Search.jsx";
-import {CategoriasApi as obtenerCategorias} from "../../api/CategoriasApi.jsx";
 import logo from "/src/assets/logo.svg"
+import {Link} from "react-router-dom";
 
 
 export default function NavBar(){
-    //const navigate = useNavigate();
-    //let handleClick = navigate('/')
-    const [categorias, setCategorias] = useState([]);
-    useEffect(() => {
-        async function cargarCategorias(){
-            try{
-                const cargarCategorias = await obtenerCategorias();
-                setCategorias(cargarCategorias);
-            } catch(error){
-                console.log("Ocurrio un error al obtener las categorías: ", error);
-            }
-        }
-        cargarCategorias();
-    }, []);
 
     return(
         <header>
@@ -29,18 +12,9 @@ export default function NavBar(){
                 <a href="/" className="logo">
                     <img src={logo} alt="Marketplace" />
                 </a>
-                <Search/>
                 <Link className="carritoButton" to={"/carrito"}>
                      carrito
                 </Link>
-                <section className="categorias">
-                    {categorias.map((categoria) => (
-                        <Link className="categoriasLink" to={`/categorias/${categoria.nombre}`}
-                            key={categoria.id}>
-                            {categoria.nombre}
-                        </Link>
-                    ))}
-                </section>
             </nav>
         </header>
     )

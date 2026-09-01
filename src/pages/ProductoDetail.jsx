@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {ProductoIdApi} from "../api/Productos/ProductoIdApi.jsx";
 import "/src/styles/pages/ProductoDetail.css"
-import {formatPrecio} from "../components/Formmaters/FormatPrice.jsx";
+import {formatPrecio} from "../components/Formatters.jsx";
 import TodosProductos from "../components/Productos/TodosProductos.jsx";
 
 export default function ProductoDetail(){

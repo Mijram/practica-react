@@ -1,6 +1,6 @@
 import "/src/styles/Productos/ProductCard.css"
-import {formatPrecio} from "../Formmaters/FormatPrice.jsx";
-import { useNavigate} from "react-router-dom";
+import {formatPrecio} from "../Formatters.jsx";
+import {useNavigate} from "react-router-dom";
 
 export default function ProductCard({producto}){
     const navigate = useNavigate();
@@ -14,4 +14,3 @@ export default function ProductCard({producto}){
         </section>
     );
 }
-

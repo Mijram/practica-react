@@ -1,38 +1,22 @@
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import AppLayout from "./components/Layout/AppLayout.jsx";
-import TodosProductos from "./components/Productos/TodosProductos.jsx";
-import ProductoPorCategoria from "./pages/ProductoPorCategoria.jsx";
+import Home from "./pages/Home.jsx";
 import ProductoDetail from "./pages/ProductoDetail.jsx";
 import Carrito from "./pages/Carrito.jsx";
 
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <AppLayout />,
-        children: [
-            {
-                path: '/',
-                element: <TodosProductos />,
-            },
-            {
-                path: '/carrito',
-                element: <Carrito/>
-            },
-            {
-                path:'/categorias/:categoriaNombre',
-                element: <ProductoPorCategoria/>
-            },
-            {
-                path:`/producto/:id`,
-                element: <ProductoDetail/>
-            }
-        ],
-    },
-]);
-
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<AppLayout />}>
+                    <Route path="/producto/:id" element={<ProductoDetail/>}/>
+                    <Route path={"/carrito"} element={<Carrito/>}/>
+                    <Route index element={<Home/>}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
